@@ -1,0 +1,17 @@
+<%= form_for(@data_pdf) do |f| %>
+  <% if @data_pdf.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@data_pdf.errors.count, "error") %> prohibited this data_pdf from being saved:</h2>
+
+      <ul>
+      <% @data_pdf.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

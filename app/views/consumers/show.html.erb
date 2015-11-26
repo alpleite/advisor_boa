@@ -1,0 +1,80 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-10">
+    <h2>DashBoard <%= @consumer.name %> </h2>
+  </div>
+
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+  
+    <br>
+    <div class="row">  <!-- SECOND ROW -->
+
+      <div class="col-lg-7">
+        <div class="ibox float-e-margins">
+          <div class="ibox-title">
+            <h5>Montly Expenses</h5>
+          </div>
+          <div class="ibox-content">
+            <%= line_chart @data_line, @options_line %>
+          </div>
+        </div>
+    </div>
+         
+        <div class="col-lg-4">
+          <div class="ibox float-e-margins">
+            <div class="ibox-title">
+              <h5>Cost Pie</h5>
+            </div>
+            <div class="ibox-content">
+            <%= pie_chart @data_pie, @options_pie %>
+            </div>
+          </div>
+
+      </div>
+
+  </div><!-- END FIRST ROW -->
+  <div class="row">  <!-- SECOND ROW -->
+
+    <div class="col-lg-11">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5>You vs Average</h5>
+        </div>
+        <div class="ibox-content">
+          <%= bar_chart @data_bar, @options_bar %>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- END FIRST ROW -->
+
+  <% if false %>
+  <%= link_to 'Novo Cliente', new_consumer_path, {class: "btn btn-primary"} %>
+  <% end %>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @consumer.name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @consumer.phone %>
+</p>
+
+<%= link_to 'Edit', edit_consumer_path(@consumer) %> |
+<%= link_to 'Back', consumers_path %>

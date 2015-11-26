@@ -36,6 +36,19 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
+  config.action_mailer.default_url_options = { :host => "localhost:3000" }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+        :address => "smtp.sendgrid.net",
+        :port => '587',
+        :domain => "place.com",
+        :authentication => :plain,
+        :user_name => "thiago.abreu@gmail.com",
+        :password => "#zaqxsw12$",
+        :enable_starttls_auto => true
+  }
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Claro Transaction By Line Claros</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Kind</th>
+      <th>Value</th>
+      <th>Allotment</th>
+      <th>Id file</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @claro_transaction_by_line_claros.each do |claro_transaction_by_line_claro| %>
+      <tr>
+        <td><%= claro_transaction_by_line_claro.name %></td>
+        <td><%= claro_transaction_by_line_claro.kind %></td>
+        <td><%= claro_transaction_by_line_claro.value %></td>
+        <td><%= claro_transaction_by_line_claro.allotment_id %></td>
+        <td><%= claro_transaction_by_line_claro.id_file %></td>
+        <td><%= link_to 'Show', claro_transaction_by_line_claro %></td>
+        <td><%= link_to 'Edit', edit_claro_transaction_by_line_claro_path(claro_transaction_by_line_claro) %></td>
+        <td><%= link_to 'Destroy', claro_transaction_by_line_claro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Claro transaction by line claro', new_claro_transaction_by_line_claro_path %>

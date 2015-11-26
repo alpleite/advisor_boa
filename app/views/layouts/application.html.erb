@@ -1,14 +1,66 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Webapp</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+    <head>
+        <title>Advisor Dashboard</title>
 
-<%= yield %>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <%= csrf_meta_tags %>
+        <% if false %>
+        <style type="text/css">
+            .nav-header {
+            padding: 33px 25px;
+            background: url("<%=image_path('header-profile.png')%>") no-repeat;
+            }
+        </style>
+        <% end %>
+        
+    </head>
+    <body>
+        <div id="wrapper">
+            <nav class="navbar-default navbar-static-side" role="navigation">
+                <div class="sidebar-collapse">
+                    <%= render 'menu'%>
+                </div>
+            </nav>
+            <div id="page-wrapper" class="gray-bg dashbard-1">
+                <div class="row border-bottom">
+                    <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                        <div class="navbar-header">
+                            
+                            <!-- HAMBURGER MENU -->
+                            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary visible-xs" href="#"><i class="fa fa-bars"></i> </a>
 
-</body>
+                        </div>
+                        <ul class="nav navbar-top-links navbar-right">
+                            <li>
+                                <span class="m-r-sm text-muted welcome-message">Usuario:<%=current_user.email%></span>
+                                <!-- <span class="m-r-sm text-muted welcome-message">Bem vindo ao DashBoard Advisor Group.</span> -->
+                            </li>
+                            <li>
+                                <a href="/users/sign_out"><i class="fa fa-sign-out"></i>Sair</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <%= yield %>
+            </div>
+        </div>
+        <% if false %>
+        <script>
+        $(document).ready(function() {
+
+            setTimeout(function() {
+                toastr.options = {
+                    closeButton: true,
+                    progressBar: true,
+                    showMethod: 'slideDown',
+                    timeOut: 4000
+                };
+                toastr.success('', 'Welcome Advisor DB');
+            }, 1300);
+        });
+        </script>
+        <% end %>
+    </body>
 </html>

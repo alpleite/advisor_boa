@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Kind:</strong>
+  <%= @claro_manager_by_line.kind %>
+</p>
+
+<p>
+  <strong>Item:</strong>
+  <%= @claro_manager_by_line.item %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @claro_manager_by_line.value %>
+</p>
+
+<p>
+  <strong>Allotment:</strong>
+  <%= @claro_manager_by_line.allotment_id %>
+</p>
+
+<p>
+  <strong>Id file:</strong>
+  <%= @claro_manager_by_line.id_file %>
+</p>
+
+<%= link_to 'Edit', edit_claro_manager_by_line_path(@claro_manager_by_line) %> |
+<%= link_to 'Back', claro_manager_by_lines_path %>

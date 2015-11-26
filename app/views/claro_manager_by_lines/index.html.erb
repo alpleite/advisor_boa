@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Claro Manager By Lines</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Kind</th>
+      <th>Item</th>
+      <th>Value</th>
+      <th>Allotment</th>
+      <th>Id file</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @claro_manager_by_lines.each do |claro_manager_by_line| %>
+      <tr>
+        <td><%= claro_manager_by_line.kind %></td>
+        <td><%= claro_manager_by_line.item %></td>
+        <td><%= claro_manager_by_line.value %></td>
+        <td><%= claro_manager_by_line.allotment_id %></td>
+        <td><%= claro_manager_by_line.id_file %></td>
+        <td><%= link_to 'Show', claro_manager_by_line %></td>
+        <td><%= link_to 'Edit', edit_claro_manager_by_line_path(claro_manager_by_line) %></td>
+        <td><%= link_to 'Destroy', claro_manager_by_line, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Claro manager by line', new_claro_manager_by_line_path %>

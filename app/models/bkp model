@@ -1,0 +1,58 @@
+class CreateTypeCompanies < ActiveRecord::Migration
+  def change
+    create_table :type_companies do |t|
+      t.string :name
+
+      t.timestamps null: false
+    end
+  end
+end
+
+class CreateCompanies < ActiveRecord::Migration
+  def change
+    create_table :companies do |t|
+      t.string :name
+      t.references :type_companies, index: true
+
+      t.timestamps null: false
+    end
+    add_foreign_key :companies, :type_companies, column: :type_companies_id
+  end
+end
+
+
+class CreateConsumers < ActiveRecord::Migration
+  def change
+    create_table :consumers do |t|
+      t.string :name
+      t.string :phone
+
+      t.timestamps null: false
+    end
+  end
+end
+
+class CreateAllotments < ActiveRecord::Migration
+  def change
+    create_table :allotments do |t|
+      t.string :name
+      t.references :consumers, index: true
+
+      t.timestamps null: false
+    end
+    add_foreign_key :allotments, :consumers, column: :consumers_id
+  end
+end
+
+class CreateClaroExtracts < ActiveRecord::Migration
+  def change
+    create_table :claro_extracts do |t|
+      t.integer :line
+      t.string :content
+      t.references :allotments, index: true
+
+      t.timestamps null: false
+    end
+    add_foreign_key :claro_extracts, :allotments, column: :allotments_id
+  end
+end

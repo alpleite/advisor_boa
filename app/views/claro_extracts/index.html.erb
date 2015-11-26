@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Claro Extracts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Line</th>
+      <th>Content</th>
+      <th>Allotment</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @claro_extracts.each do |claro_extract| %>
+      <tr>
+        <td><%= claro_extract.line %></td>
+        <td><%= claro_extract.content %></td>
+        <td><%= claro_extract.allotment %></td>
+        <td><%= link_to 'Show', claro_extract %></td>
+        <td><%= link_to 'Edit', edit_claro_extract_path(claro_extract) %></td>
+        <td><%= link_to 'Destroy', claro_extract, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Claro extract', new_claro_extract_path %>

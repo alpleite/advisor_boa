@@ -1,0 +1,112 @@
+<% if @company_id == 1 %>
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Gerencial Geral">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Item</Data></Cell>
+        <Cell><Data ss:Type="String">Tipo</Data></Cell>
+        <Cell><Data ss:Type="String">Value</Data></Cell>
+      </Row>
+      <% @header_manager_claro.each do |manager| %>
+      <Row>
+        <Cell><Data ss:Type="String"><%= manager.item %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= manager.tipo %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= manager.value %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+  <Worksheet ss:Name="Gerencial Por Linha">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Linha</Data></Cell>
+        <Cell><Data ss:Type="String">Item</Data></Cell>
+        <Cell><Data ss:Type="String">Valor</Data></Cell>
+      </Row>
+      <% @manager_by_line.each do |manager| %>
+      <Row>
+        <Cell><Data ss:Type="String"><%= manager.kind %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= manager.item %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= manager.value %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+  <Worksheet ss:Name="Transacional Por Linha">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Item</Data></Cell>
+        <Cell><Data ss:Type="String">Linha</Data></Cell>
+        <Cell><Data ss:Type="String">Valor</Data></Cell>
+        <Cell><Data ss:Type="String">Tempo de Uso</Data></Cell>
+        <Cell><Data ss:Type="String">Valor Total</Data></Cell>
+        <Cell><Data ss:Type="String">Valor Cobrado</Data></Cell>
+      </Row>
+      <% @claro_transaction_by_line.each do |manager| %>
+      <Row>
+        <Cell><Data ss:Type="String"><%= manager.name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= manager.kind %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= manager.value %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= manager.use_time %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= manager.valor_total %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= manager.valor_cobrado %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+  <Worksheet ss:Name="Ligações para celulares Claro">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Item</Data></Cell>
+        <Cell><Data ss:Type="String">Linha</Data></Cell>
+        <Cell><Data ss:Type="String">Valor</Data></Cell>
+        <Cell><Data ss:Type="String">Tempo de Uso</Data></Cell>
+      </Row>
+      <% @claroTransactionByLineClaro.each do |manager| %>
+      <Row>
+        <Cell><Data ss:Type="String"><%= manager.name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= manager.kind %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= manager.value %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= manager.use_time %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
+<% else %>
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  
+  <Worksheet ss:Name="Gerencial Geral Vivo">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Item</Data></Cell>
+        <Cell><Data ss:Type="String">Servico / Plano</Data></Cell>
+        <Cell><Data ss:Type="String">Quantidade Planos</Data></Cell>
+        <Cell><Data ss:Type="String">Quantidade de Numeros Vivo</Data></Cell>
+        <Cell><Data ss:Type="String">Valor</Data></Cell>
+      </Row>
+      <% @header_manager_vivo.each do |manager| %>
+      <Row>
+        <Cell><Data ss:Type="String"><%= manager.item %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= manager.contracted_service %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= manager.amount_of_plans %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= manager.number_of_lines %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= manager.contracted_amount %></Data></Cell>
+      </Row>
+      <% end %>
+    </Table>
+  </Worksheet>
+
+</Workbook>
+<% end %>
+

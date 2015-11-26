@@ -1,0 +1,29 @@
+<%= form_for(@claro_extract) do |f| %>
+  <% if @claro_extract.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@claro_extract.errors.count, "error") %> prohibited this claro_extract from being saved:</h2>
+
+      <ul>
+      <% @claro_extract.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :line %><br>
+    <%= f.number_field :line %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_field :content %>
+  </div>
+  <div class="field">
+    <%= f.label :allotment_id %><br>
+    <%= f.text_field :allotment_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

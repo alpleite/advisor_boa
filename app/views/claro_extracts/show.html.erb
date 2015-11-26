@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Line:</strong>
+  <%= @claro_extract.line %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @claro_extract.content %>
+</p>
+
+<p>
+  <strong>Allotment:</strong>
+  <%= @claro_extract.allotment %>
+</p>
+
+<%= link_to 'Edit', edit_claro_extract_path(@claro_extract) %> |
+<%= link_to 'Back', claro_extracts_path %>

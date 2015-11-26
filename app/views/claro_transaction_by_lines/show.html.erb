@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @claro_transaction_by_line.name %>
+</p>
+
+<p>
+  <strong>Kind:</strong>
+  <%= @claro_transaction_by_line.kind %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @claro_transaction_by_line.value %>
+</p>
+
+<p>
+  <strong>Use time:</strong>
+  <%= @claro_transaction_by_line.use_time %>
+</p>
+
+<p>
+  <strong>Allotment:</strong>
+  <%= @claro_transaction_by_line.allotment_id %>
+</p>
+
+<p>
+  <strong>Id file:</strong>
+  <%= @claro_transaction_by_line.id_file %>
+</p>
+
+<%= link_to 'Edit', edit_claro_transaction_by_line_path(@claro_transaction_by_line) %> |
+<%= link_to 'Back', claro_transaction_by_lines_path %>

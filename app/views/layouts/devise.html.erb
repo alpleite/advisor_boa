@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Advisor Dashboard | Login</title>
+
+    <%= stylesheet_link_tag 'bootstrap.min.css', media: 'all' %>
+    <%= stylesheet_link_tag 'font-awesome.css' %>
+    <%= stylesheet_link_tag 'animate.css' %>
+    <%= stylesheet_link_tag 'style.css' %>
+    
+</head>
+
+<body class="gray-bg shadow">
+
+    <div class="middle-box text-center loginscreen animated fadeInDown">
+        <div>
+            <div id="login-logo">
+            
+            <!-- <h1 class="logo-name">DB+</h1> -->
+            <%= image_tag("logos/logo-default-dashboard-300.png", :alt => "Logo Advisor" ) %>
+
+            </div>
+
+            <h3>Bem vindo</h3>
+            <p>
+                <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
+            </p>
+
+            <!-- <p>Entre em sua conta:</p> -->
+            <% if false %>
+<!--             <form class="m-t" role="form" action="index.html">
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Username" required="">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Password" required="">
+                </div>
+                <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
+
+                <a href="#"><small>Forgot password?</small></a>
+                <p class="text-muted text-center"><small>Do not have an account?</small></p>
+                <a class="btn btn-sm btn-white btn-block" href="register.html">Create an account</a>
+            </form> -->
+            <% end %>
+            <%= yield %>
+            <p class="m-t"> <small></small> </p>
+        </div>
+    </div>
+
+    
+
+    <!-- Mainly scripts -->
+    <%= javascript_include_tag 'jquery-2.1.1.js' %>
+    <%= javascript_include_tag 'bootstrap.min.js' %>
+    
+</body>
+
+</html>

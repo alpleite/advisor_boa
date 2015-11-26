@@ -1,0 +1,37 @@
+<%= form_for(@claro_transaction_by_line_claro) do |f| %>
+  <% if @claro_transaction_by_line_claro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@claro_transaction_by_line_claro.errors.count, "error") %> prohibited this claro_transaction_by_line_claro from being saved:</h2>
+
+      <ul>
+      <% @claro_transaction_by_line_claro.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :kind %><br>
+    <%= f.text_field :kind %>
+  </div>
+  <div class="field">
+    <%= f.label :value %><br>
+    <%= f.text_field :value %>
+  </div>
+  <div class="field">
+    <%= f.label :allotment_id %><br>
+    <%= f.number_field :allotment_id %>
+  </div>
+  <div class="field">
+    <%= f.label :id_file %><br>
+    <%= f.text_field :id_file %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

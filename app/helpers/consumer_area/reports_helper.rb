@@ -1,0 +1,2 @@
+module ConsumerArea::ReportsHelper
+end

@@ -1,9 +1,49 @@
 Rails.application.routes.draw do
+  
+  resources :claro_manager_by_lines
+
+  resources :claro_transaction_by_line_claros
+
+  resources :claro_transaction_by_lines
+
+  resources :header_manager_claros
+
+  resources :pdf_files
+
+  devise_for :users
+  
+  resources :claro_extracts
+
+  resources :consumers
+
+  resources :companies
+
+  resources :allotments
+
+  resources :type_companies
+
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  
+  resources :lote_wizard
+
+  resources :process_pdf
+
+  resources :data_pdfs
+
+
+  namespace :consumer_area do
+    resources :reports
+  end
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'consumers#index'
+
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

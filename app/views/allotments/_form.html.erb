@@ -1,0 +1,33 @@
+
+<%= form_for(@allotment) do |f| %>
+  <% if @allotment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@allotment.errors.count, "error") %> prohibited this allotment from being saved:</h2>
+
+      <ul>
+      <% @allotment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, :class=>"form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :consumers_id %><br>
+    <%= f.collection_select :consumers_id, Consumer.all, :id, :name %>
+  </div>
+
+  <% if false %>
+  <div class="form-group">
+    <%= f.label :status %><br>
+    <%= f.select :status, Allotment.statuses.keys.to_a%>
+  </div>
+  <% end %>
+  
+  <div class="form-group">
+    <%= f.submit class: 'btn btn-default'%>
+  </div>
+<% end %>

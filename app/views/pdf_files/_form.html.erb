@@ -1,0 +1,52 @@
+  <%= form_for(@pdf_file, :multipart => true) do |f| %>
+  <% if @pdf_file.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pdf_file.errors.count, "error") %> prohibited this pdf_file from being saved:</h2>
+
+      <ul>
+      <% @pdf_file.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.attachment_field :pdf_file, direct: true, :class=>"form-control" %>
+
+  <div class="field">
+    <%= f.label :Operadora %><br />
+    <%= f.select :company_id, options_for_select(Company.all.map{|s|[s.name, s.id]}) %>
+  </div>
+
+  <div class="field" style="display:none">
+    <%= f.label :allotments_id %><br>
+    <%= f.text_field :allotments_id, :value => @token%>
+  </div>
+
+  <% if false %>
+
+  <div class="form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="form-group">
+    <%= f.label :path %><br>
+    <%= f.text_field :path %>
+  </div>
+  <div class="form-group">
+    <%= f.label :type %><br>
+    <%= f.text_field :type %>
+  </div>
+  
+  <% end %>
+  <br>
+  <div class="form-group">
+    <%= f.submit class: 'btn btn-default' %>
+  </div>
+
+<% end %>
+<script type="text/javascript">
+  function disable_button(obj){
+    $(obj).attr("disabled", "disabled");
+  }
+</script>

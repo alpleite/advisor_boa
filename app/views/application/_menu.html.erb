@@ -1,0 +1,65 @@
+<ul class="nav metismenu" id="side-menu">
+    <li class="nav-header">
+        <div class="dropdown profile-element"> 
+            <span>
+                <% if false %><img alt="image" class="img-circle" src="<%=image_path('profile_small.jpg')%>" /><% end %>
+            </span>
+
+            <%= image_tag("logos/logo-white-150-tight.png", :alt => "Logo Advisor", :id => "nav-header-logo") %>
+            <% if false %>
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                <span class="clear"> 
+
+                    <span class="text-muted text-xs block">
+                        <span class="block m-t-xs">
+                            <%=current_user.email%>
+                        </span> 
+                    </span> 
+                </a>
+                <% end %>
+            </div>
+        </li>
+
+        <% if current_user.admin %>
+            
+            <% if current_page?(url_for(:controller => 'consumers'))%>
+
+                <li class="active">
+
+            <% else %>
+        
+                <li>
+        
+            <% end %>
+
+            
+            <%= link_to consumers_path do %><i class="fa fa-user"></i><span class="nav-label">Clientes</span><%end%>
+        
+            </li>
+
+        <% end %>
+
+        <% if current_user.admin %>
+            
+            <% if current_page?(url_for(:controller => 'allotments')) %>
+            
+                <li class="active">
+            
+            <% else %>
+                
+                <li>
+            
+            <% end %>
+
+            <%= link_to allotments_path do %><i class="fa fa-folder"></i><span class="nav-label">Lotes</span><%end%>
+            
+            </li>
+        <% end %>
+
+        <%  if current_user.admin == false %>
+            <li class="active"><%= link_to  consumer_area_reports_path  do %><span class="nav-label">Relatório</span><% end %></li>
+        <% end %>
+
+
+
+</ul>

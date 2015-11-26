@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Header Manager Claros</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Item</th>
+      <th>Tipo</th>
+      <th>Value</th>
+      <th>Allotment</th>
+      <th>Id file</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @header_manager_claros.each do |header_manager_claro| %>
+      <tr>
+        <td><%= header_manager_claro.name %></td>
+        <td><%= header_manager_claro.item %></td>
+        <td><%= header_manager_claro.tipo %></td>
+        <td><%= header_manager_claro.value %></td>
+        <td><%= header_manager_claro.allotment_id %></td>
+        <td><%= header_manager_claro.id_file %></td>
+        <td><%= link_to 'Show', header_manager_claro %></td>
+        <td><%= link_to 'Edit', edit_header_manager_claro_path(header_manager_claro) %></td>
+        <td><%= link_to 'Destroy', header_manager_claro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Header manager claro', new_header_manager_claro_path %>

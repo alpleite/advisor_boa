@@ -1,0 +1,2 @@
+module NewLoteHelper
+end
