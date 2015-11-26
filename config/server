@@ -1,0 +1,34 @@
+server {
+        listen 80 ;
+        listen [::]:80 ;
+
+        root /home/advisor_boa/current/public;
+        server_name boa.advisordashboard.com.br;
+        passenger_enabled on;
+        passenger_intercept_errors on;
+        error_page 404 /404.html;
+        error_page 500 /500.html;
+
+        location ~* ^/assets/ {
+                    # Per RFC2616 - 1 year maximum expiry
+                          if ($http_accept ~* "webp") { set $webp "true"; }
+                          if (-f $request_filename.webp) { set $webp "${webp}-local"; }
+                          if ($webp = "true-local") {
+                                  add_header Vary Accept;
+                                  access_log   off;
+                                  expires      30d;
+                                  rewrite (.*) $1.webp break;
+                                   }
+                    expires 1y;
+                    add_header Cache-Control public;
+                    access_log  off;
+                    gzip_static  on;
+                    gzip_proxied any;
+                    # Some browsers still send conditional-GET requests if there's a
+                    # Last-Modified header or an ETag header even if they haven't
+                    # reached the expiry date sent in the Expires header.
+                    add_header Last-Modified "";
+                    add_header ETag "";
+                    break;
+               }
+  }
