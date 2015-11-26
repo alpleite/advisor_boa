@@ -3,6 +3,7 @@
 #
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
+# 
 # #AdvisorGrupo%SantosFutebolKlube$
 default: &default
   adapter: sqlite3
@@ -30,7 +31,7 @@ production:
   adapter:  postgresql
   host:     localhost
   encoding: unicode
-  database: advisor_boa_policard
+  database: advisor_boa
   pool:     50
   username: postgres
   password: thiagoabreu
